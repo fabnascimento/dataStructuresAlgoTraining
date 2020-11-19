@@ -89,6 +89,19 @@ class BinarySearchTree {
             this.preorder(node.right);
         }
     }
+
+    /*
+    * Traverse the left subtree i.e perform postorder on left subtree
+    * Traverse the right subtree i.e perform postorder on right subtree
+    * Visit the root 
+    */
+    postorder(node) {
+        if (node !== null) {
+            this.postorder(node.left);
+            this.postorder(node.right);
+            console.log(node.data);
+        }
+    }
 }
 
 const BST = new BinarySearchTree();
@@ -99,7 +112,12 @@ BST.insert(15);
 BST.insert(11);
 BST.insert(15);
 
+console.log('Running inorder');
 BST.inorder(BST.getRootNode());
+console.log('Running preorder');
+BST.preorder(BST.getRootNode());
+console.log('Running postorder');
+BST.postorder(BST.getRootNode())
 
 let found = BST.search(BST.getRootNode(), 15);
 
